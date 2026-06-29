@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Cover · Apple Keynote</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #000;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  /* Subtle gradient glow */
+  body::before {
+    content: ''; position: absolute;
+    width: 800px; height: 800px;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0,122,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  /* Hero text */
+  .hero-title {
+    font-size: 120px; font-weight: 800;
+    color: #fff; text-align: center;
+    line-height: 1.1; letter-spacing: -0.03em;
+    position: relative; z-index: 2;
+  }
+  .hero-title .small { font-size: 80px; font-weight: 600; }
+  .hero-sub {
+    font-size: 32px; font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    margin-top: 32px; letter-spacing: 0.05em;
+    z-index: 2;
+  }
+  .hero-meta {
+    position: absolute; bottom: 80px;
+    font-size: 18px; color: rgba(255,255,255,0.35);
+    letter-spacing: 0.08em;
+    z-index: 2;
+  }
+  /* Apple-style orb */
+  .orb {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,122,255,0.08) 0%, transparent 60%);
+    border-radius: 50%; pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <div class="orb"></div>
+  <div class="hero-title">
+    <div class="small">AI工具</div>
+    不止聊天
+  </div>
+  <div class="hero-sub">硬件产品经理的AI工作流分享</div>
+  <div class="hero-meta">SINO-WELL</div>
+</body>
+</html>

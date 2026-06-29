@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Content · Y2K Maximalist</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #0A0A0A;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    padding: 100px 120px;
+  }
+  /* Kicker */
+  .kicker {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kicker-line { width: 40px; height: 4px; background: #FF006E; border-radius: 2px; }
+  .kicker-text { font-size: 14px; font-weight: 700; color: #FF006E; text-transform: uppercase; letter-spacing: 0.15em; }
+  /* H1 */
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 96px; color: #fff;
+    letter-spacing: -0.03em; line-height: 1.05;
+    margin-bottom: 60px;
+  }
+  h1 .accent { color: #06FFA5; }
+  /* Content cards */
+  .cards {
+    display: flex; gap: 24px;
+  }
+  .card {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 72px; color: rgba(255,255,255,0.08);
+    position: absolute; top: 20px; right: 30px;
+  }
+  .card-title {
+    font-size: 28px; font-weight: 700; color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .card-desc {
+    font-size: 18px; color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+  .card:nth-child(1) { border-top: 4px solid #FF006E; }
+  .card:nth-child(2) { border-top: 4px solid #8338EC; }
+  .card:nth-child(3) { border-top: 4px solid #3A86FF; }
+  /* Footer */
+  .footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 60px; background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 120px;
+    font-size: 14px; color: rgba(255,255,255,0.3);
+  }
+</style>
+</head>
+<body>
+  <div class="kicker">
+    <div class="kicker-line"></div>
+    <div class="kicker-text">进阶用法</div>
+  </div>
+  <h1>AI的进阶用法：<br><span class="accent">Skills</span> 生态</h1>
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">不只是聊天</div>
+      <div class="card-desc">AI可以调用专业工具包（Skills），完成市场分析、用户调研、PRD撰写等特定任务，而非简单问答。</div>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">可复用的工作流</div>
+      <div class="card-desc">Skills将重复性任务封装成标准化流程，一次配置、多次调用，持续提升团队效率。</div>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">自进化能力</div>
+      <div class="card-desc">Hermes Agent能根据使用经验自动优化Skills，越用越精准，形成团队知识沉淀。</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>AI工具，不止聊天</span>
+    <span>06 / 30</span>
+  </div>
+</body>
+</html>

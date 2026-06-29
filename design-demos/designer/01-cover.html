@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Cover · Pentagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #FAF9F6;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+    padding: 120px 160px;
+  }
+  /* Masthead strip */
+  .masthead {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 8px; background: #1a1a1a;
+  }
+  /* Top label */
+  .top-label {
+    font-size: 13px; font-weight: 500;
+    color: #999; text-transform: uppercase;
+    letter-spacing: 0.2em; margin-bottom: 80px;
+  }
+  /* Main title */
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 140px; font-weight: 900;
+    color: #1a1a1a; line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 60px;
+  }
+  .hero-title .accent {
+    color: #C4A35A; /* 暖金色 */
+  }
+  /* Subtitle */
+  .hero-sub {
+    font-size: 28px; font-weight: 300;
+    color: #666; line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 80px;
+  }
+  /* Divider line */
+  .divider {
+    width: 80px; height: 3px;
+    background: #C4A35A; margin-bottom: 40px;
+  }
+  /* Meta */
+  .meta {
+    font-size: 15px; color: #999;
+    letter-spacing: 0.05em;
+  }
+  .meta strong { color: #1a1a1a; font-weight: 600; }
+  /* Right side decorative */
+  .deco {
+    position: absolute; right: 160px; top: 50%;
+    transform: translateY(-50%);
+    width: 400px; height: 600px;
+    border: 1px solid #E5E0D5;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .deco-inner {
+    width: 360px; height: 560px;
+    border: 1px solid #E5E0D5;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .deco-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 200px; font-weight: 900;
+    color: rgba(196,163,90,0.15);
+    line-height: 1;
+  }
+  /* Page number */
+  .page-num {
+    position: absolute; bottom: 60px; right: 160px;
+    font-size: 14px; color: #ccc;
+    font-family: 'Inter', sans-serif;
+  }
+</style>
+</head>
+<body>
+  <div class="masthead"></div>
+  <div class="top-label">SINO-WELL · 产品团队内部分享</div>
+  <div class="hero-title">AI工具<br><span class="accent">不止</span>聊天</div>
+  <div class="hero-sub">硬件产品经理的AI工作流实践分享<br>探索Skills生态与自动化任务的可能性</div>
+  <div class="divider"></div>
+  <div class="meta"><strong>2026.06</strong> · 45分钟 · 30人</div>
+  <div class="deco">
+    <div class="deco-inner">
+      <div class="deco-text">AI</div>
+    </div>
+  </div>
+  <div class="page-num">01 / 30</div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>P04 · Hermes vs 竞品</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #F5F5F7;
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow: hidden;
+    padding: 80px 100px;
+    position: relative;
+  }
+
+  /* Masthead */
+  .masthead {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 56px; background: #fff;
+    border-bottom: 1px solid #E5E5E5;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+  }
+  .masthead-left { display: flex; align-items: center; gap: 16px; }
+  .masthead-logo {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: #1a1a1a; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.05em;
+  }
+  .masthead-title { font-size: 13px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.01em; }
+  .masthead-meta { font-size: 12px; color: #999; font-weight: 400; }
+  .masthead-right { display: flex; align-items: center; gap: 24px; }
+  .masthead-sec { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* Kicker */
+  .kicker {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px; margin-top: 40px;
+  }
+  .kicker-line { width: 24px; height: 3px; background: #007AFF; border-radius: 2px; }
+  .kicker-text { font-size: 13px; font-weight: 600; color: #007AFF; text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* H1 */
+  h1 {
+    font-size: 72px; font-weight: 800; color: #1a1a1a;
+    letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 48px;
+  }
+  h1 .accent { color: #007AFF; }
+
+  /* Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    height: 640px;
+  }
+
+  /* Card Base */
+  .card {
+    background: #fff; border-radius: 20px;
+    border: 1px solid #E8E8E8;
+    padding: 32px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+  /* Card Header */
+  .card-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+  }
+  .card-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .card-title-group { flex: 1; }
+  .card-title { font-size: 22px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.02em; }
+  .card-sub { font-size: 13px; color: #999; margin-top: 2px; }
+
+  /* Feature List */
+  .feature-list { list-style: none; flex: 1; }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid #F0F0F0;
+    font-size: 14px; color: #444; line-height: 1.5;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .check {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; flex-shrink: 0; margin-top: 1px;
+  }
+  .feature-list .check.yes { background: #34C759; color: #fff; }
+  .feature-list .check.no { background: #FF3B30; color: #fff; }
+  .feature-list .check.partial { background: #FF9500; color: #fff; }
+
+  /* Hermes Card - Special styling */
+  .card-hermes {
+    grid-row: span 2;
+    background: #1a1a1a; border-color: #333;
+  }
+  .card-hermes .card-title { color: #fff; }
+  .card-hermes .card-sub { color: #888; }
+  .card-hermes .feature-list li { color: #ccc; border-color: #333; }
+  .card-hermes .card-icon { background: #007AFF; }
+  .card-hermes .badge {
+    position: absolute; top: 20px; right: 20px;
+    background: #007AFF; color: #fff;
+    font-size: 11px; font-weight: 700;
+    padding: 4px 10px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* Claude Card */
+  .card-claude .card-icon { background: #D4A574; color: #fff; }
+  .card-claude .card-title { color: #1a1a1a; }
+
+  /* Codex Card */
+  .card-codex .card-icon { background: #10A37F; color: #fff; }
+  .card-codex .card-title { color: #1a1a1a; }
+
+  /* Bottom highlight bar for Hermes */
+  .card-hermes::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px; background: #007AFF; border-radius: 0 0 20px 20px;
+  }
+
+  /* Footer */
+  .page-footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 48px; background: #fff;
+    border-top: 1px solid #E5E5E5;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+  }
+  .footer-sec { font-size: 12px; color: #999; font-weight: 500; }
+  .footer-page { font-size: 12px; color: #ccc; font-family: 'JetBrains Mono', monospace; }
+
+  /* Tag pills */
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .tag {
+    font-size: 12px; font-weight: 500;
+    padding: 4px 10px; border-radius: 6px;
+    background: #F0F0F0; color: #666;
+  }
+  .card-hermes .tag { background: #333; color: #aaa; }
+</style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <div class="masthead-left">
+      <div class="masthead-logo">H</div>
+      <div class="masthead-title">AI工具，不止聊天</div>
+    </div>
+    <div class="masthead-right">
+      <div class="masthead-sec">产品分享</div>
+      <div class="masthead-meta">2026.06</div>
+    </div>
+  </div>
+
+  <!-- Kicker -->
+  <div class="kicker">
+    <div class="kicker-line"></div>
+    <div class="kicker-text">工具对比</div>
+  </div>
+
+  <!-- H1 -->
+  <h1>为什么推荐 <span class="accent">Hermes</span>？</h1>
+
+  <!-- Bento Grid -->
+  <div class="bento-grid">
+
+    <!-- Hermes Card (tall, left) -->
+    <div class="card card-hermes">
+      <div class="badge">推荐</div>
+      <div class="card-header">
+        <div class="card-icon">H</div>
+        <div class="card-title-group">
+          <div class="card-title">Hermes Agent</div>
+          <div class="card-sub">Nous Research · 自进化AI Agent</div>
+        </div>
+      </div>
+      <ul class="feature-list">
+        <li><span class="check yes">✓</span> 自进化学习循环：自动创建Skills、持续优化</li>
+        <li><span class="check yes">✓</span> 跨会话持久记忆：越用越懂你</li>
+        <li><span class="check yes">✓</span> 60+内置工具 + MCP扩展生态</li>
+        <li><span class="check yes">✓</span> 多平台消息网关：Telegram/Discord/Slack/Teams</li>
+        <li><span class="check yes">✓</span> 桌面端 + CLI + 云端部署</li>
+        <li><span class="check yes">✓</span> 语音模式 + 定时任务</li>
+        <li><span class="check yes">✓</span> 开源可定制：SOUL.md人格定义</li>
+        <li><span class="check yes">✓</span> 不绑定IDE，独立工作</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">自进化</span>
+        <span class="tag">多平台</span>
+        <span class="tag">开源</span>
+        <span class="tag">定时任务</span>
+      </div>
+    </div>
+
+    <!-- Claude Code Card -->
+    <div class="card card-claude">
+      <div class="card-header">
+        <div class="card-icon">C</div>
+        <div class="card-title-group">
+          <div class="card-title">Claude Code</div>
+          <div class="card-sub">Anthropic · 编码Agent</div>
+        </div>
+      </div>
+      <ul class="feature-list">
+        <li><span class="check yes">✓</span> 深度代码理解与编辑</li>
+        <li><span class="check yes">✓</span> IDE/终端集成</li>
+        <li><span class="check yes">✓</span> 浏览器自动化</li>
+        <li><span class="check no">✗</span> 无自进化Skills系统</li>
+        <li><span class="check no">✗</span> 无跨会话持久记忆</li>
+        <li><span class="check no">✗</span> 无消息网关/多平台</li>
+        <li><span class="check no">✗</span> 无定时任务</li>
+        <li><span class="check partial">~</span> 绑定IDE使用</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">编码强</span>
+        <span class="tag">IDE集成</span>
+      </div>
+    </div>
+
+    <!-- Codex Card -->
+    <div class="card card-codex">
+      <div class="card-header">
+        <div class="card-icon">O</div>
+        <div class="card-title-group">
+          <div class="card-title">OpenAI Codex</div>
+          <div class="card-sub">OpenAI · 云端编码Agent</div>
+        </div>
+      </div>
+      <ul class="feature-list">
+        <li><span class="check yes">✓</span> 云端编码环境</li>
+        <li><span class="check yes">✓</span> 多文件编辑能力</li>
+        <li><span class="check yes">✓</span> 沙箱安全执行</li>
+        <li><span class="check no">✗</span> 无自进化Skills系统</li>
+        <li><span class="check no">✗</span> 无跨会话持久记忆</li>
+        <li><span class="check no">✗</span> 无消息网关/多平台</li>
+        <li><span class="check no">✗</span> 无定时任务</li>
+        <li><span class="check partial">~</span> 云端限定，无本地桌面</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">云端</span>
+        <span class="tag">沙箱</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="footer-sec">工具对比</div>
+    <div class="footer-page">04 / 30</div>
+  </div>
+
+</body>
+</html>

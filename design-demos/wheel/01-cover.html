@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Cover · Y2K Maximalist</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px;
+    background: linear-gradient(135deg, #FF006E 0%, #8338EC 35%, #3A86FF 70%, #06FFA5 100%);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  /* Noise texture overlay */
+  body::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  /* Giant 3D膨胀文字 */
+  .hero-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 200px;
+    color: #fff;
+    text-align: center;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-shadow:
+      4px 4px 0px #FF006E,
+      8px 8px 0px #8338EC,
+      12px 12px 0px #3A86FF,
+      16px 16px 0px rgba(0,0,0,0.3);
+    position: relative; z-index: 2;
+  }
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    margin-top: 40px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .hero-meta {
+    position: absolute; bottom: 60px;
+    font-size: 16px; color: rgba(255,255,255,0.7);
+    letter-spacing: 0.1em;
+    z-index: 2;
+  }
+  /* Decorative shapes */
+  .shape {
+    position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    z-index: 1;
+  }
+  .shape-1 { width: 300px; height: 300px; top: -80px; right: 200px; }
+  .shape-2 { width: 180px; height: 180px; bottom: 150px; left: 120px; background: rgba(255,255,255,0.1); }
+  .shape-3 { width: 100px; height: 100px; top: 300px; left: 400px; background: rgba(255,255,255,0.08); }
+  /* 年份标签 */
+  .year-badge {
+    position: absolute; top: 60px; right: 80px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 72px; color: rgba(255,255,255,0.25);
+    letter-spacing: -0.02em;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+  <div class="year-badge">2026</div>
+  <div class="hero-title">AI工具<br>不止聊天</div>
+  <div class="hero-sub">硬件产品经理的AI工作流分享</div>
+  <div class="hero-meta">SINO-WELL · 产品团队内部分享</div>
+</body>
+</html>

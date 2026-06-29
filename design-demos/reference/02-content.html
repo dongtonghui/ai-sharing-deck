@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Content · Apple Keynote</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px;
+    background: #000;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+    padding: 140px 200px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+  }
+  /* Kicker */
+  .kicker {
+    font-size: 20px; font-weight: 600;
+    color: #007AFF; text-transform: uppercase;
+    letter-spacing: 0.15em; margin-bottom: 32px;
+  }
+  /* H1 */
+  h1 {
+    font-size: 88px; font-weight: 700;
+    color: #fff; letter-spacing: -0.02em;
+    line-height: 1.1; margin-bottom: 80px;
+  }
+  h1 .accent { color: #007AFF; }
+  /* Feature row */
+  .features {
+    display: flex; gap: 60px;
+  }
+  .feature {
+    flex: 1;
+  }
+  .feature-icon {
+    width: 64px; height: 64px; border-radius: 16px;
+    background: rgba(0,122,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; margin-bottom: 24px;
+  }
+  .feature-title {
+    font-size: 28px; font-weight: 600; color: #fff;
+    margin-bottom: 16px;
+  }
+  .feature-desc {
+    font-size: 20px; color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+  /* Footer */
+  .footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 80px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 200px;
+    font-size: 16px; color: rgba(255,255,255,0.25);
+  }
+</style>
+</head>
+<body>
+  <div class="kicker">进阶用法</div>
+  <h1>AI的进阶用法：<span class="accent">Skills</span> 生态</h1>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">◆</div>
+      <div class="feature-title">不只是聊天</div>
+      <div class="feature-desc">AI可以调用专业工具包（Skills），完成市场分析、用户调研、PRD撰写等特定任务。</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">◆</div>
+      <div class="feature-title">可复用的工作流</div>
+      <div class="feature-desc">Skills将重复性任务封装成标准化流程，一次配置、多次调用，持续提升团队效率。</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">◆</div>
+      <div class="feature-title">自进化能力</div>
+      <div class="feature-desc">Hermes Agent能根据使用经验自动优化Skills，越用越精准，形成团队知识沉淀。</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>AI工具，不止聊天</span>
+    <span>06 / 30</span>
+  </div>
+</body>
+</html>
